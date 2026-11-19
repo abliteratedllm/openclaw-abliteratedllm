@@ -1,0 +1,78 @@
+{
+  "name": "@abliteratedllm/openclaw-abliteratedllm",
+  "version": "1.0.0",
+  "description": "OpenClaw model provider plugin for AbliteratedLLM.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "assets",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abliteratedllm/openclaw-abliteratedllm.git"
+  },
+  "homepage": "https://abliteratedllm.dev/docs",
+  "bugs": {
+    "url": "https://github.com/abliteratedllm/openclaw-abliteratedllm/issues"
+  },
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "openclaw-provider",
+    "abliteratedllm",
+    "llm",
+    "openai-compatible"
+  ],
+  "engines": {
+    "node": ">=24.16.0 <25 || >=26.1.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.11.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "openclaw": "^2026.11.5",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.4"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "prepack": "npm run build"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "runtimeExtensions": [
+      "./dist/index.js"
+    ],
+    "install": {
+      "clawhubSpec": "clawhub:@abliteratedllm/openclaw-abliteratedllm",
+      "npmSpec": "@abliteratedllm/openclaw-abliteratedllm",
+      "defaultChoice": "clawhub",
+      "minHostVersion": ">=2026.11.5"
+    },
+    "compat": {
+      "pluginApi": ">=2026.11.5",
+      "minGatewayVersion": "2026.11.5"
+    },
+    "build": {
+      "openclawVersion": "2026.11.5",
+      "pluginSdkVersion": "2026.11.5"
+    }
+  }
+}
